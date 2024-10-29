@@ -1,0 +1,472 @@
+% LaTeX template for paper manuscript
+
+\documentclass[10pt,twoside,reqno,final]{manuscript}
+%\documentclass[10pt,reqno,draft]{manuscript}
+%\documentclass[10pt,twoside,reqno,twocolumn]{manuscript}
+
+% Add other packages here
+% package for bibliography support
+%\usepackage{cite}
+\usepackage[numbers,sort&compress]{natbib}
+
+% package for showing keys in draft mode
+\usepackage[notcite,notref]{showkeys}
+% package for intelligent cross-referencing
+%\usepackage{cleveref}
+% package for line number
+%\usepackage[pagewise,mathlines]{lineno}
+%\linenumbers
+%\modulolinenumbers[5]
+
+% hyperlink setting
+\hypersetup{
+  colorlinks=true,
+  linkcolor=magenta,
+  citecolor=blue,
+  filecolor=blue,
+  urlcolor=blue
+}
+
+% command for line spacing
+\renewcommand{\baselinestretch}{1.1}
+
+% graphic path
+\graphicspath{{./figures/}}
+
+% differential operator
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+
+% new command
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\dx}[1][x]{\mathop{}\!\mathrm{d}#1}
+\newcommand{\ii}{\mathrm{i}\mkern1mu} % imaginary
+\newcommand{\refe}[2]{(\ref{#1})--(\ref{#2})}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+% Journal info shown under firstpage style
+%\lheader{Journal of \LaTeX{} Templates}
+%\cheader{}
+%\rheader{\textcopyright{} XYZ Publishing Group}
+\lfooter{\itshape Preprint submitted to Journal}
+%\cfooter{\footnotesize\thepage}
+%\rfooter{}
+
+
+% Full Title of the paper
+\title{Academic Article Template for Manuscript or Preprint\tfootnote{This is a title footnote}}
+
+% Short title for running heads:
+\shorttitle{Short Title of the Article}
+
+% Authors and their affiliations
+\author[1]{Author A}
+\author[2]{Author B}
+\author[1,\cormark]{Author C}
+\affil[1]{Department of Mathematics, \LaTeX{} University}
+\affil[2]{Department of Mechanical Engineering, \LaTeX{} University}
+\cortext{Corresponding author. Email address: \texttt{xyz@math.univ.edu}}
+
+% Short list of authors for running heads:
+\shortauthor{Author A, Author B, and Author C}
+
+% Date is editable
+\date{Date: \today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+
+\begin{abstract}
+This is an example \LaTeX{} article. This can be used as a template for new articles.
+Abstracts must be able to stand alone and so cannot contain citations to the paper's references, equations, etc.
+An abstract must consist of a single paragraph and be concise.
+Because of online formatting, abstracts must appear as plain as possible.
+Any equations should be inline.
+
+\keywords{Academic article, Example, \LaTeX{} template}
+\MSC{65M60, 65M12}
+\end{abstract}
+
+
+%%%%%%%%%% main body %%%%%%%%%%
+
+\section{Introduction}
+
+The introduction introduces the context and summarizes the manuscript.
+It is important to clearly state the contributions of this piece of work.
+
+In this paper, we present a new method for solving the model equation
+\begin{equation}\label{eq:mulequ}
+\left\{\begin{aligned}
+  & \partial_{t} u-\varepsilon^{2} \Delta u+u^{3}-u=0, \quad \text{in} ~\Omega\times\mathcal{T}, \\
+  & u(x,y,t) = g(t), \quad \text{on} ~ \partial \Omega \times \mathcal{T},, \\
+  & u(x,y,0)=\varphi(x, y), \quad \text{on} ~\Omega,
+\end{aligned}\right.
+\end{equation}
+where $\varepsilon$ is a small parameter.
+
+This is an example of referencing the equation \eqref{eq:mulequ}.
+
+The merits of our method are as follows:
+\begin{itemize}
+  \item item one
+  \item item two
+  \item item three
+\end{itemize}
+\begin{enumerate}
+  \item item one
+  \item item two
+  \item item three
+\end{enumerate}
+
+The outline is not required, but we show an example here.
+
+The paper is organized as follows. Our main results are in \ref{sec:main},
+our new algorithm is in \ref{sec:alg}, experimental results are in \ref{sec:experiments},
+discussion is in \ref{sec:discussion} and the conclusions follow in \ref{sec:conclusions}.
+
+
+\section{Preliminaries}
+\label{sec:preliminaries}
+
+\subsection{This is subsection}
+
+\subsubsection{This is subsubsection}
+
+
+\section{Main results}
+\label{sec:main}
+
+We interleave text filler with some example theorems and theorem-like items.
+
+\begin{definition}
+This is a definition environment.
+\end{definition}
+
+\begin{lemma}
+This is a lemma environment.
+\end{lemma}
+
+\begin{theorem}
+This is a theorem environment.
+\end{theorem}
+\begin{proof}
+  This is a proof environment.
+\end{proof}
+
+\begin{lemma}
+This is a lemma environment
+\begin{enumerate}[label={\upshape(\roman*)}]
+  \item item A
+  \item item B
+  \begin{equation}\label{eq:limite}
+    \lim_{n\to\infty}\left(1+\frac{1}{n}\right)^n=e.
+  \end{equation}
+\end{enumerate}
+\end{lemma}
+
+This is a citation example \cite{Adams2003,TreWei2014}.
+This statement requires citations \cite{Shen1994,Tadmor2012,TreWei2014}.
+
+Here we state our main result as \autoref{thm:bigthm}.
+
+\begin{theorem}[$LDL^T$ Factorization \cite{GoVa2013}]\label{thm:bigthm}
+  If $A \in \mathbb{R}^{n \times n}$ is symmetric and the principal submatrix $A(1:k,1:k)$ is nonsingular for $k=1:n-1$, then there
+  exists a unit lower triangular matrix $L$ and a diagonal matrix
+  \begin{equation*}
+    D = \operatorname{diag}(d_1,\dots,d_n),  %\diag(d_1,\dots,d_n)
+  \end{equation*}
+  such that $A=LDL^T$. The factorization is unique.
+\end{theorem}
+
+LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation.
+LaTeX is based on the idea that it is better to leave document design to document designers, and to let authors get on with writing documents.
+
+\begin{theorem}[Mean Value Theorem]\label{thm:mvt}
+  Suppose $f$ is a function that is continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$.
+  Then there exists a number $c$ such that $a < c < b$ and
+  \begin{equation*}
+    f'(c) = \frac{f(b)-f(a)}{b-a}.
+  \end{equation*}
+  In other words,
+  \begin{equation*}
+    f(b)-f(a) = f'(c)(b-a).
+  \end{equation*}
+\end{theorem}
+
+\begin{remark}\label{aaa}
+Observe that \ref{thm:bigthm}, \ref{thm:mvt} correctly mix references to multiple labels.
+\end{remark}
+
+% command cref package cleveref
+%Observe that \cref{thm:bigthm,thm:mvt,cor:a} correctly mix references
+%to multiple labels.
+
+\begin{corollary}\label{cor:a}
+  Let $f(x)$ be continuous and differentiable everywhere.
+  If $f(x)$ has at least two roots, then $f'(x)$ must have at least one root.
+\end{corollary}
+\begin{proof}
+  Let $a$ and $b$ be two distinct roots of $f$.
+  By \ref{thm:mvt}, there exists a number $c$ such that
+  \begin{equation*}
+    f'(c) = \frac{f(b)-f(a)}{b-a} = \frac{0-0}{b-a} = 0.
+  \end{equation*}
+\end{proof}
+
+Note that it may require two \LaTeX\ compilations for the proof marks to show.
+
+Display matrices can be rendered using environments from \texttt{amsmath}:
+\begin{equation}\label{eq:matrices}
+S=\begin{bmatrix}
+1 & 0 \\
+0 & 0
+\end{bmatrix}
+\quad\text{and}\quad
+C=\begin{pmatrix}
+1 & 1 & 0 \\
+1 & 1 & 0 \\
+0 & 0 & 0
+\end{pmatrix}.
+\end{equation}
+Equation \ref{eq:matrices} shows some example matrices.
+
+We calculate the Fr\'{e}chet derivative of $F$ as follows:
+\begin{subequations}
+\begin{align}
+  F'(U,V)(H,K)
+  &= \langle R(U,V),H\Sigma V^{T} + U\Sigma K^{T} -
+  P(H\Sigma V^{T} + U\Sigma K^{T})\rangle \label{eq:aa} \\
+  &= \langle R(U,V),H\Sigma V^{T} + U\Sigma K^{T}\rangle
+  \nonumber \\
+  &= \langle R(U,V)V\Sigma^{T},H\rangle +
+  \langle \Sigma^{T}U^{T}R(U,V),K^{T}\rangle. \label{eq:bb}
+\end{align}
+\end{subequations}
+\ref{eq:aa} is the first line, and \ref{eq:bb} is the last line.
+
+\section{Algorithm}
+\label{sec:alg}
+
+Our analysis leads to the algorithm in \ref{alg:buildtree}.
+
+\begin{algorithm}
+\caption{Build tree}
+\label{alg:buildtree}
+\begin{algorithmic}
+  \State {Define $P:=T:=\{ \{1\},\ldots,\{d\}$\}}
+  \While{$\#P > 1$}
+    \State {Choose $C^\prime\in\mathcal{C}_p(P)$ with $C^\prime := \operatorname{argmin}_{C\in\mathcal{C}_p(P)} \varrho(C)$}
+    \State {Find an optimal partition tree $T_{C^\prime}$ }
+    \State {Update $P := (P{\setminus} C^\prime) \cup \{ \bigcup_{t\in C^\prime} t \}$}
+    \State {Update $T := T \cup \{ \bigcup_{t\in\tau} t : \tau\in T_{C^\prime}{\setminus} \mathcal{L}(T_{C^\prime})\}$}
+  \EndWhile
+  \State \Return $T$
+\end{algorithmic}
+\end{algorithm}
+
+Adjust the width of the algorithm environment
+\begin{center}
+\vspace{-2ex}
+\begin{minipage}{0.9\linewidth}
+\begin{algorithm}[H]
+\caption{Euclid's algorithm}
+\label{alg:euclid}
+\begin{algorithmic}[1] % line numbering
+\Procedure{Euclid}{$a,b$}\Comment{The g.c.d. of a and b}
+  \State $r \gets a \bmod b$
+  \While{$r\not=0$}\Comment{We have the answer if r is 0}
+    \State $a \gets b$
+    \State $b \gets r$
+    \State $r \gets a \bmod b$
+  \EndWhile\label{euclidendwhile}
+  \State \textbf{return} $b$\Comment{The gcd is b}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\end{minipage}
+\end{center}
+
+
+\section{Experimental results}
+\label{sec:experiments}
+
+Some experimental results here. Some experimental results here.
+Some experimental results here. Some experimental results here.
+Some experimental results here.Some experimental results here.
+
+\begin{example}
+  This is example environment.
+\end{example}
+
+Figure~\ref{fig:foo} shows some example results.
+\begin{figure}[htp!]
+  \centering
+  \includegraphics[width=0.46\linewidth]{fig1}
+  \caption{Example figure using external image files.}
+  \label{fig:foo}
+\end{figure}
+
+The two figures are placed side by side, sharing the same title, as shown in \autoref{fig:twofigs}.
+\begin{figure}[htp!]
+  \centering
+  \includegraphics[width=0.45\linewidth]{fig1}
+  \qquad
+  \includegraphics[width=0.45\linewidth]{fig2}
+  \caption{Left: Caption 1, Right: Caption 2.}
+  \label{fig:twofigs}
+\end{figure}
+
+Use the \texttt{tabular} environment to generate \autoref{tab:foo}.
+The commands \verb|\tabcolsep| and \verb|\tabcolsep| control the spacing between columns and the vertical space between rows, respectively.
+
+\begin{table}[htp!]
+\centering
+\setlength{\tabcolsep}{12pt}  % 6pt standard
+\renewcommand{\arraystretch}{1.2}
+\caption{Event Schedule}
+\label{tab:foo}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Date} & \textbf{Location}  & \textbf{Event Name}  & \textbf{Remarks}  \\ \hline
+2023-02  & New York & Academic Symposium     & Topic: Artificial Intelligence \\ \hline
+2023-05  & London   & Academic Exchange      & Focus: Mathematical Modeling   \\ \hline
+2023-09  & Shanghai & Technology Exhibition  & Display of New Chips           \\ \hline
+2024-02  & Tokyo   & Research Workshop      & Subject: Quantum Computing     \\ \hline
+2024-06  & Paris   & International Conference & Theme: Climate Change        \\ \hline
+\end{tabular}
+\end{table}
+
+Use \texttt{minipage} package to set images side-by-side, each with its own title, as shown in Figure~\ref{fig:A} and Figure~\ref{fig:B}.
+
+\begin{figure}[htp!]
+\begin{minipage}[t]{0.48\linewidth}
+  \centering
+  \includegraphics[width=0.96\linewidth]{fig1}
+  \caption{Caption A}
+  \label{fig:A}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\linewidth}
+  \centering
+  \includegraphics[width=0.96\linewidth]{fig2}
+  \caption{Caption B}
+  \label{fig:B}
+\end{minipage}
+\end{figure}
+
+Use \texttt{subfig} package to set subfigure, each with its subcaption, as shown in Figure~\ref{fig:twosubfig}.
+
+\begin{figure}[htp!]
+\centering
+\subfloat[Subcaption A]{\includegraphics[width=0.46\linewidth]{fig1}}
+\qquad
+\subfloat[Subcaption B]{\includegraphics[width=0.46\linewidth]{fig2}}
+\caption{Two subfigures}
+\label{fig:twosubfig}
+\end{figure}
+
+Use the \texttt{tabularx} environment to generate \autoref{tab:heightweight}.
+%The defined column type \texttt{P} also works for \texttt{tabular} environment.
+
+\begin{table}[htp!]
+\centering
+\newcolumntype{L}{X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft \arraybackslash}X}
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\caption{Height and weight sample of students from a school}
+\label{tab:heightweight}
+\begin{tabularx}{0.9\textwidth}{P{1.5cm}CCC}
+\toprule
+Serial No. & Age & Height (cm) & Weight (kg) \\
+\midrule
+001 & 15 & 156 & 42 \\
+002 & 16 & 158 & 45 \\
+003 & 14 & 162 & 48 \\
+004 & 15 & 163 & 50 \\
+\cmidrule{2-4}
+Average & 15 & 159.75 & 46.25 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Additional results are available in the supplement in Table~\ref{tab:error}.
+
+\begin{table}[htp!]
+\centering
+\setlength{\tabcolsep}{8pt}
+\renewcommand\arraystretch{1.2}
+\caption{Numerical error}
+\label{tab:error}
+\begin{tabular}{c|c|cc|cc|cc}
+\Xhline{2\arrayrulewidth}
+degree & step-size~$h$ & $L^2$-errors & order & $H^1$-errors & order & $L^\infty$-errors & order \\
+\hline
+\multirow{3}{*}{1}
+  & 1/128 & 9.18E-06 & 2.02 & 7.70E-03 & 1.01 & 6.46E-07 & 2.02 \\
+  & 1/256 & 2.29E-06 & 2.01 & 1.92E-03 & 1.00 & 1.61E-07 & 2.01 \\
+  & 1/512 & 5.70E-07 & 2.00 & 9.56E-04 & 1.00 & 4.01E-08 & 2.00 \\
+\hline  % \cline{1-8}
+\multirow{3}{*}{2}
+  & 1/128 & 1.39E-08 & 3.01 & 1.15E-05 & 2.01 & 3.48E-12 & 4.02 \\
+  & 1/256 & 1.73E-09 & 3.01 & 2.88E-06 & 2.01 & 3.27E-13 & 3.94 \\
+  & 1/512 & 2.17E-10 & 3.00 & 7.24E-06 & 2.00 & 6.66E-13 & 1.55 \\
+\hline  % \cline{1-8}
+\multirow{3}{*}{3}
+  & 1/32  & 2.28E-09 & 4.05 & 6.92E-07 & 3.04 & 1.45E-15 & 8.21 \\
+  & 1/64  & 1.42E-10 & 4.03 & 8.65E-08 & 3.02 & 2.06E-14 & 3.85 \\
+  & 1/128 & 8.91E-12 & 4.01 & 1.08E-08 & 3.01 & 3.86E-14 & 0.91 \\
+\Xhline{2\arrayrulewidth}
+\end{tabular}
+\end{table}
+
+
+\section{Discussion of \texorpdfstring{{\boldmath$Z=X \cup Y$}}{Z = X union Y}}
+\label{sec:discussion}
+
+Some discussions here. Some discussions here. Some discussions here.
+Some discussions here. Some discussions here. Some discussions here.
+Some discussions here. Some discussions here.
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+Some conclusions here. Some conclusions here. Some conclusions here.
+Some conclusions here. Some conclusions here. Some conclusions here.
+Some conclusions here.
+
+
+\appendix
+\section{An example appendix}
+
+The contents of the appendix are here.
+
+\begin{lemma}
+Test Lemma.
+\end{lemma}
+
+This is an equation in the appendix.
+\begin{equation}\label{eq:A1}
+  a^2+b^2=c^2.
+\end{equation}
+
+
+\section*{Acknowledgments}
+
+We would like to acknowledge the assistance of volunteers in putting together this example manuscript and supplement.
+
+
+% References
+%\bibliographystyle{plain}
+\bibliographystyle{abbrv}
+
+\phantomsection
+\addcontentsline{toc}{section}{\refname}
+\bibliography{reference}
+
+
+\end{document}
+
