@@ -55,7 +55,7 @@
 % refinements for typographical perfection
 \RequirePackage{microtype}
 % package for hyperlink
-\usepackage{hyperref}
+\RequirePackage{hyperref}
 
 % package for section etc.
 \RequirePackage{titlesec}
