@@ -7,7 +7,7 @@ The template **manuscript** loaded the standard class *article* and can pass all
 The compiler should choose **PDFLaTeX** and **BibTeX**.
 
 ```tex
-\documentclass[10pt,twoside,reqno,final]{manuscript}
+\documentclass[a4paper,10pt,twoside,reqno,final]{manuscript}
 ```
 
 The template is available on online LaTeX platforms, such as Overleaf and TeXPage.
