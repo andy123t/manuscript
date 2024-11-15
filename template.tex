@@ -4,11 +4,15 @@
 %\documentclass[a4paper,twoside,reqno,draft]{manuscript}
 %\documentclass[10pt,twoside,reqno,twocolumn]{manuscript}
 
-% Add other packages here
 % package for bibliography support
 %\usepackage{cite}
 \usepackage[numbers,sort&compress]{natbib}
 
+% bibliography style
+%\bibliographystyle{plain}
+\bibliographystyle{abbrv}
+
+% Add other packages here
 % package for showing keys in draft mode
 \usepackage[notcite,notref]{showkeys}
 % package for intelligent cross-referencing
@@ -169,6 +173,8 @@ This is a lemma environment
 
 This is a citation example \cite{Adams2003,TreWei2014}.
 This statement requires citations \cite{Shen1994,Tadmor2012,TreWei2014}.
+
+This is an preprint citation \cite{LiuEtAl2024}.
 
 Here we state our main result as \autoref{thm:bigthm}.
 
@@ -460,11 +466,10 @@ We would like to acknowledge the assistance of volunteers in putting together th
 
 
 % References
-%\bibliographystyle{plain}
-\bibliographystyle{abbrv}
 
-\phantomsection
-\addcontentsline{toc}{section}{\refname}
+
+%\phantomsection
+%\addcontentsline{toc}{section}{\refname}
 \bibliography{reference}
 
 
