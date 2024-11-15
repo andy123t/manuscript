@@ -17,8 +17,14 @@ The template is available on online LaTeX platforms, such as Overleaf and TeXPag
 
 ## BibTeX with preprints
 
-One method is to use a BibTeX entry with the `howpublished` field. Example:
+One method is to use a BibTeX entry with the `howpublished` field.
 
+Choose the bibliography style
+```latex
+\bibliographystyle{abbrv}
+```
+
+Input the BibTeX database to bib file
 ```bibtex
 @misc{LiuEtAl2024,
   title = {{KAN}: {Kolmogorov-Arnold Networks}},
@@ -34,7 +40,15 @@ Output:
 
 An alternative approach is to use a BibTeX style that supports the `eprint` field (see [arXiv help](https://info.arxiv.org/help/hypertex/bibstyles/index.html)), such as `hplain` or `habbrv`, and add `eprint` entries to your BibTeX database for proper preprint citation. Example:
 
+Choose the bibliography style
+
+```latex
+\bibliographystyle{habbrv}
 ```
+
+Input the BibTeX database to bib file
+
+```bibtex
 @misc{LiuEtAl2024,
   title = {{KAN}: {Kolmogorov-Arnold Networks}},
   author = {Liu, Ziming and Wang, Yixuan and Vaidya, Sachin and Ruehle, Fabian and Halverson, James and Solja{\v c}i{\'c}, Marin and Hou, Thomas Y. and Tegmark, Max},
